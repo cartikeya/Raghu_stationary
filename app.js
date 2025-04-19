@@ -10,10 +10,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => {
     res.render('index');
 });
-
-
-
-
+app.get('/sign-in', (req, res) => {
+  res.render('signin/signin');
+});
 
 const PORT = 3000;
 app.listen(PORT, () => {
