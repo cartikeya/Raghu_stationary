@@ -37,8 +37,8 @@ app.post('/signup', (req, res) => {
     res.send('Signup logic goes here');
 });
 
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-// mongoose.connect('mongodb+srv://cartikeyaofficial:<1234567890>@stationary-login.k2job.mongodb.net/?retryWrites=true&w=majority&appName=Stationary-login')
-// .then(() => console.log("✅ Connected to MongoDB"))
-// .catch(err => console.log("❌ MongoDB connection error:", err));
+mongoose.connect('mongodb+srv://cartikeyaofficial:WD5o2ocdHsCxIiHx@cluster0.tjhetcq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+.then(() => console.log("✅ Connected to MongoDB"))
+.catch(err => console.log("❌ MongoDB connection error:", err));
