@@ -6,10 +6,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>C2C Website</title>
     <link rel="stylesheet" href="/css/signin.css">
-    <title>C2C website</title>
 </head>
 
 <body>
+<% if (typeof email === 'undefined') { var email = ''; } %>
     <div class="form-container">
         <!-- sign in form -->
         <div class="login-container" id="login-container">
@@ -45,15 +45,33 @@
         <div class="signup-container" id="signup-container" >
             <h1 class="title">C2C Sign Up</h1>
             <p class="desc">Create your account.</p>
-            <form action="/signup">
+            <!-- signup form -->
+            <form action="/signup" method="POST">
                 <div class="input-container">
-                    <input type="email" placeholder="Enter your college email id">
+                    <label for="email"></label>
+                    <input type="email" name="email" placeholder="Enter your college email id" required>
                 </div>
                 <div class="input-container">
-                    <input type="password" placeholder="Enter your password">
+                    <label for="password"></label>
+                    <input type="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <div class="input-container">
+                    <label for="name"></label>
+                    <input type="text" name="name" placeholder="Enter your name" required>
                 </div>
                 <div class="account-controls">
-                    <button >Next <i class="fas fa-angle-right"></i></button>
+                    <button>Next <i class="fas fa-angle-right"></i></button>
+                </div>
+            </form>
+
+            <form action="/verify-otp" method="POST" style="display: none;">
+                <input type="hidden" name="email" value="<%= email || '' %>">
+                <div class="input-container" id="otp-container">
+                    <label for="otp"></label>
+                    <input type="text" name="otp" placeholder="Enter OTP (sent to mail)">
+                </div>
+                <div class="account-controls">
+                    <button type="submit">Verify OTP</button>
                 </div>
             </form>
             <span class="line"></span>
